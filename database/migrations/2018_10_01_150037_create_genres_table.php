@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCheckoutInTable extends Migration
+class CreateGenresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateCheckoutInTable extends Migration
      */
     public function up()
     {
-        Schema::create('checkout_in', function (Blueprint $table) {
-            $table->integer('userLibraryId');
-            $table->date('checkout');
-            $table->date('checkin');
+        Schema::create('genres', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('genre');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateCheckoutInTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('checkout_in');
+        Schema::dropIfExists('genres');
     }
 }

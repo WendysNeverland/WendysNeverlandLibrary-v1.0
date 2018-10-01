@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserLibraryTable extends Migration
+class CreateCheckOutInsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateUserLibraryTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_library', function (Blueprint $table) {
+        Schema::create('check_out_ins', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('bookId');
-            $table->integer('audioId');
-            $table->integer('userId');
+            $table->integer('userLibraryId');
+            $table->date('checkout');
+            $table->date('checkin');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateUserLibraryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_library');
+        Schema::dropIfExists('check_out_ins');
     }
 }

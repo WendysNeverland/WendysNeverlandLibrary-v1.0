@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGenreTable extends Migration
+class CreateUserLibrariesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateGenreTable extends Migration
      */
     public function up()
     {
-        Schema::create('genre', function (Blueprint $table) {
+        Schema::create('user_libraries', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('genre');
+            $table->integer('bookId');
+            $table->integer('audioId');
+            $table->integer('userId');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateGenreTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('genre');
+        Schema::dropIfExists('user_libraries');
     }
 }
