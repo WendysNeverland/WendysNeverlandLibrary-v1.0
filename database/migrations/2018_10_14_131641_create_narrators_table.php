@@ -15,7 +15,9 @@ class CreateNarratorsTable extends Migration
     {
         Schema::create('narrators', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('firstname');
+            $table->string('tussenvoegsel')->nullable();
+            $table->string('lastname');
             $table->timestamps();
         });
     }

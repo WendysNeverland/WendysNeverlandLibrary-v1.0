@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class AuthorBook extends Model
+class user_library extends Model
 {
     //
 }

@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('LibraryHome');
 });
+
+Route::get('/author', 'AuthorController@index');
+Route::get('/author/create', 'AuthorController@create');
+Route::get('/author/{author}', 'AuthorController@show');
+Route::post('/author', 'AuthorController@store');

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCheckOutInsTable extends Migration
+class CreateOutInChecksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateCheckOutInsTable extends Migration
      */
     public function up()
     {
-        Schema::create('check_out_ins', function (Blueprint $table) {
+        Schema::create('out_in_checks', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('userLibraryId');
             $table->date('checkout');
@@ -29,6 +29,6 @@ class CreateCheckOutInsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('check_out_ins');
+        Schema::dropIfExists('out_in_checks');
     }
 }

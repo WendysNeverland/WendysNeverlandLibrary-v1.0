@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\narrator;
+use App\out_in_check;
 use Illuminate\Http\Request;
 
-class NarratorController extends Controller
+class OutInCheckController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class NarratorController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\narrator  $narrator
+     * @param  \App\out_in_check  $out_in_check
      * @return \Illuminate\Http\Response
      */
-    public function show(narrator $narrator)
+    public function show(out_in_check $out_in_check)
     {
         //
     }
@@ -52,10 +52,10 @@ class NarratorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\narrator  $narrator
+     * @param  \App\out_in_check  $out_in_check
      * @return \Illuminate\Http\Response
      */
-    public function edit(narrator $narrator)
+    public function edit(out_in_check $out_in_check)
     {
         //
     }
@@ -64,10 +64,10 @@ class NarratorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\narrator  $narrator
+     * @param  \App\out_in_check  $out_in_check
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, narrator $narrator)
+    public function update(Request $request, out_in_check $out_in_check)
     {
         //
     }
@@ -75,10 +75,10 @@ class NarratorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\narrator  $narrator
+     * @param  \App\out_in_check  $out_in_check
      * @return \Illuminate\Http\Response
      */
-    public function destroy(narrator $narrator)
+    public function destroy(out_in_check $out_in_check)
     {
         //
     }

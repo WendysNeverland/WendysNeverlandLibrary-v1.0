@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class AudioBookNarrator extends Model
+class audio_book_narrator extends Model
 {
     //
 }
