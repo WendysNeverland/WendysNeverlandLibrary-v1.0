@@ -19,3 +19,8 @@ Route::get('/author', 'AuthorController@index');
 Route::get('/author/create', 'AuthorController@create');
 Route::get('/author/{author}', 'AuthorController@show');
 Route::post('/author', 'AuthorController@store');
+
+Route::get('/narrator', 'NarratorController@index');
+Route::get('/narrator/create', 'NarratorController@create');
+Route::get('/narrator/{narrator}', 'NarratorController@show');
+Route::post('/narrator', 'NarratorController@store');

@@ -14,7 +14,8 @@ class NarratorController extends Controller
      */
     public function index()
     {
-        //
+        $narrators = narrator::get();
+        return view('narrator/index', compact('narrators'));
     }
 
     /**
@@ -24,7 +25,7 @@ class NarratorController extends Controller
      */
     public function create()
     {
-        //
+        return view('narrator/create');
     }
 
     /**
@@ -35,7 +36,17 @@ class NarratorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+        Narrator::create(request(['firstname','tussenvoegsel','lastname']));
+        // $narrator = new Narrator;
+        // $narrator->firstname = request('firstname');
+        // $narrator->tussenvoegsel = request('tussenvoegsel');
+        // $narrator->lastname = request('lastname');
+
+        // $narrator->save();
+
+        return redirect('narrator');
     }
 
     /**
@@ -46,7 +57,7 @@ class NarratorController extends Controller
      */
     public function show(narrator $narrator)
     {
-        //
+        return view('narrator/show', compact('narrator'));
     }
 
     /**

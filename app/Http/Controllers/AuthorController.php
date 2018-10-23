@@ -36,13 +36,15 @@ class AuthorController extends Controller
      */
     public function store(Request $request)
     {
-        $author = new Author;
+        Author::create(request(['firstname','tussenvoegsel','lastname']));
 
-        $author->firstname = request('firstname');
-        $author->tussenvoegsel = request('tussenvoegsel');
-        $author->lastname = request('lastname');
+        // $author = new Author;
 
-        $author->save();
+        // $author->firstname = request('firstname');
+        // $author->tussenvoegsel = request('tussenvoegsel');
+        // $author->lastname = request('lastname');
+
+        // $author->save();
 
         return redirect('author');
     }
