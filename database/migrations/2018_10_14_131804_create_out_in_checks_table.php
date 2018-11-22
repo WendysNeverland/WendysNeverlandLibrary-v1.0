@@ -15,10 +15,11 @@ class CreateOutInChecksTable extends Migration
     {
         Schema::create('out_in_checks', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('userLibraryId');
+            $table->unsignedInteger('userLibraryId');
             $table->date('checkout');
             $table->date('checkin');
             $table->timestamps();
+            $table->foreign('userLibraryId')->references('id')->on('user_libraries');
         });
     }
 

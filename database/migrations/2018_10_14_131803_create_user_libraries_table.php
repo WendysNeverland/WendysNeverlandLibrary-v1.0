@@ -15,10 +15,10 @@ class CreateUserLibrariesTable extends Migration
     {
         Schema::create('user_libraries', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('bookId');
-            $table->integer('audioId');
-            $table->integer('userId');
+            $table->morphs('library');
+            $table->unsignedInteger('userId')->nullable();
             $table->timestamps();
+            $table->foreign('userId')->references('id')->on('users');
         });
     }
 

@@ -18,7 +18,9 @@ class CreateBooksTable extends Migration
             $table->String('title');
             $table->text('summary');
             $table->string('cover');
+            $table->unsignedInteger('genreId')->nullable();
             $table->timestamps();
+            $table->foreign('genreId')->references('id')->on('genres');
         });
     }
 
