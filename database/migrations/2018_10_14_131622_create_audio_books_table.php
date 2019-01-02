@@ -15,10 +15,10 @@ class CreateAudioBooksTable extends Migration
     {
         Schema::create('audio_books', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('bookId');
+            $table->unsignedInteger('book_id');
             $table->string('cover');
             $table->timestamps();
-            $table->foreign('bookId')->references('id')->on('books');
+            $table->foreign('book_id')->references('id')->on('books');
         });
     }
 

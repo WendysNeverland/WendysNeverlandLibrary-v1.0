@@ -16,9 +16,9 @@ class CreateUserLibrariesTable extends Migration
         Schema::create('user_libraries', function (Blueprint $table) {
             $table->increments('id');
             $table->morphs('library');
-            $table->unsignedInteger('userId')->nullable();
+            $table->unsignedInteger('user_id')->nullable();
             $table->timestamps();
-            $table->foreign('userId')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

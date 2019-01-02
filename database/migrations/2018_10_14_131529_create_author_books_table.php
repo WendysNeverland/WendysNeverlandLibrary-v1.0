@@ -15,11 +15,11 @@ class CreateAuthorBooksTable extends Migration
     {
         Schema::create('author_books', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('authorId');
-            $table->unsignedInteger('bookId');
+            $table->unsignedInteger('author_id');
+            $table->unsignedInteger('book_id');
             $table->timestamps();
-            $table->foreign('authorId')->references('id')->on('authors');
-            $table->foreign('bookId')->references('id')->on('books');
+            $table->foreign('author_id')->references('id')->on('authors');
+            $table->foreign('book_id')->references('id')->on('books');
         });
     }
 
