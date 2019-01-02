@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class AudioBook extends Model
-{
+{   //De onderstaande functions geven de relatie tussen tabelen in het database weer.
     public function narrators()
     {
         return $this->belongsToMany('App\Narrator', 'audio_book_narrators');
