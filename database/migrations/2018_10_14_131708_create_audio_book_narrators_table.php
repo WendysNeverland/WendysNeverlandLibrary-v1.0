@@ -15,10 +15,10 @@ class CreateAudioBookNarratorsTable extends Migration
     {
         Schema::create('audio_book_narrators', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('audio_id');
+            $table->unsignedInteger('audio_book_id');
             $table->unsignedInteger('narrator_id');
             $table->timestamps();
-            $table->foreign('audio_id')->references('id')->on('audio_books');
+            $table->foreign('audio_book_id')->references('id')->on('audio_books');
             $table->foreign('narrator_id')->references('id')->on('narrators');
         });
     }

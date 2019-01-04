@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\audio_book;
+use App\AudioBook;
+use App\Book;
 use Illuminate\Http\Request;
 
 class AudioBookController extends Controller
@@ -14,7 +15,9 @@ class AudioBookController extends Controller
      */
     public function index()
     {
-        //
+        $audioBooks = AudioBook::get();
+        $books = Book::get();
+        return view('audiobook/index', compact(['audioBooks','books']));
     }
 
     /**
@@ -44,9 +47,11 @@ class AudioBookController extends Controller
      * @param  \App\audio_book  $audio_book
      * @return \Illuminate\Http\Response
      */
-    public function show(audio_book $audio_book)
+    public function show(AudioBook $audioBook)
     {
-        //
+        $book = $audioBook->book()->get();
+        $narrators = $audioBook->narrators()->get();
+        return view('audiobook/show', compact(['audioBook', 'book','narrators']));
     }
 
     /**

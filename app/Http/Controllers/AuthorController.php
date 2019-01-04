@@ -14,7 +14,7 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        $authors = author::get();
+        $authors = Author::get();
         return view('author/index', compact('authors'));
     }
 
@@ -55,7 +55,7 @@ class AuthorController extends Controller
      * @param  \App\author  $author
      * @return \Illuminate\Http\Response
      */
-    public function show(author $author)
+    public function show(Author $author)
     {
         return view('author/show', compact('author'));
     }

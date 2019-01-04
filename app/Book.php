@@ -15,4 +15,9 @@ class Book extends Model
       return $this->belongsToMany('App\Author', 'author_books');
   }
 
+  public function audioBooks()
+  {
+      return $this->hasMany('App\AudioBook');
+  }
+
 }
