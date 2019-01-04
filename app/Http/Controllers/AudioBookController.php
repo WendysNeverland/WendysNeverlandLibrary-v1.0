@@ -15,9 +15,8 @@ class AudioBookController extends Controller
      */
     public function index()
     {
-        $audioBooks = AudioBook::get();
-        $books = Book::get();
-        return view('audiobook/index', compact(['audioBooks','books']));
+        $audioBooks = AudioBook::with(['book'])->get();
+        return view('audiobook/index', compact('audioBooks'));
     }
 
     /**
@@ -49,9 +48,8 @@ class AudioBookController extends Controller
      */
     public function show(AudioBook $audioBook)
     {
-        $book = $audioBook->book()->get();
-        $narrators = $audioBook->narrators()->get();
-        return view('audiobook/show', compact(['audioBook', 'book','narrators']));
+        $audioBook = AudioBook::with(['book','narrators'])->where('id',$audioBook->id)->get();
+        return view('audiobook/show', compact('audioBook'));
     }
 
     /**

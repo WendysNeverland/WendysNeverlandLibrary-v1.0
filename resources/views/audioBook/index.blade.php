@@ -5,7 +5,7 @@
 <ul>
     @foreach ($audioBooks as $audioBook)
         <li>
-            <a href="/audiobook/{{$audioBook->id}}">{{$audioBook->title}} {{$audioBook->cover}}</a>
+            <a href="/audiobook/{{$audioBook->id}}">{{$audioBook->book->title}} {{$audioBook->cover}}</a>
         </li>
     @endforeach
 </ul>

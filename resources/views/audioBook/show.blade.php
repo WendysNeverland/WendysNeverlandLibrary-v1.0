@@ -2,6 +2,7 @@
 
 @section('content')
 <h1>One Audiobook</h1>
-<strong>{{ $book->title }} <a href = "{{ $audioBook->cover }}">Cover</a></strong>
+
+<strong>{{ $audioBook->book->title }} <a href = "{{ $audioBook->cover }}">Cover</a></strong>
 
 @endsection
