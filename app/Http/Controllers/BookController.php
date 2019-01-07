@@ -41,7 +41,7 @@ class BookController extends Controller
     public function store(Request $request)
     {
         $book = Book::create(request(['title','summary','cover','genre_id']));
-        $authors = request(['authors']);
+        $authors = request('authors');//blokhaken maken er een array van net deze naam als array erin
         foreach ($authors as $authorId) {
             $author = Author::where('id',$authorId)->first();
             $author->books()->attach($book->id);
