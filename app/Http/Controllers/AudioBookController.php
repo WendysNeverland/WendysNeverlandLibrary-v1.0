@@ -15,7 +15,7 @@ class AudioBookController extends Controller
      */
     public function index()
     {
-        $audioBooks = AudioBook::with(['book'])->get();
+        $audioBooks = AudioBook::with(['book', 'narrators'])->get();
         return view('audiobook/index', compact('audioBooks'));
     }
 
@@ -26,7 +26,8 @@ class AudioBookController extends Controller
      */
     public function create()
     {
-        //
+        $books = Book::get();
+        return view('audiobook/create', compact('books'));
     }
 
     /**
@@ -37,7 +38,8 @@ class AudioBookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Audiobook::create(request(['book_id','cover']));
+        return redirect('audiobook');
     }
 
     /**
@@ -48,7 +50,6 @@ class AudioBookController extends Controller
      */
     public function show(AudioBook $audioBook)
     {
-        $audioBook = AudioBook::with(['book','narrators'])->where('id',$audioBook->id)->get();
         return view('audiobook/show', compact('audioBook'));
     }
 

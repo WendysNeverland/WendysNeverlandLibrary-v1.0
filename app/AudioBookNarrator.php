@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class AudioBookNarrator extends Model
 {
+
+    protected $guarded = [];
+
     protected function audioBook()
     {
         return $this->belongsTo('App\AudioBook');

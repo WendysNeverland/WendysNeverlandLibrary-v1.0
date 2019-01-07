@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Book;
+use App\Genre;
+use App\Author;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -14,7 +16,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::get();
+        $books = Book::with('genre')->get();
         return view('book/index', compact('books'));
     }
 
@@ -25,7 +27,9 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('book/create');
+        $genres = Genre::get();
+        $authors = Author::get();
+        return view('book/create', compact('genres','authors'));
     }
 
     /**
@@ -36,7 +40,12 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        Book::create(request(['title','summary','cover']));
+        $book = Book::create(request(['title','summary','cover','genre_id']));
+        $authors = request(['authors']);
+        foreach ($authors as $authorId) {
+            $author = Author::where('id',$authorId)->first();
+            $author->books()->attach($book->id);
+        }
         return redirect('book');
     }
 

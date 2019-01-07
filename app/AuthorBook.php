@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class AuthorBook extends Model
 {
+    protected $guarded = [];
+
     protected function author()
     {
         return $this->belongsTo('App\Author');

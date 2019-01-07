@@ -1,22 +1,22 @@
 @extends('layout')
 
 @section('content')
-    <h1>Add Author</h1>
+    <h1>Add Audiobook</h1>
 
 
-    <form method="POST" action="/author" class="col-sm-4">
+    <form method="POST" action="/audiobook" class="col-sm-4">
         {{csrf_field()}}
         <div class="form-group">
-          <label for="authorFirstname">Firstname</label>
-          <input type="text" class="form-control" id="authorFirstname" placeholder="Firstname" name="firstname">
+            <label for="bookTitle">Book</label>
+            <select class="form-control" id="bookTitle" name='book_id'>
+                @foreach ($books as $book)
+            <option value="{{$book->id}}">{{$book->title}}</option>
+                @endforeach
+            </select>
         </div>
         <div class="form-group">
-            <label for="authorTussenvoegsel">tussenvoegsel</label>
-            <input type="text" class="form-control" id="authorTussenvoegsel" placeholder="tussenvoegsel" name='tussenvoegsel'>
-        </div>
-        <div class="form-group">
-            <label for="authorLastname">Lastname</label>
-            <input type="text" class="form-control" id="authorLastname" placeholder="Lastname" name='lastname'>
+            <label for="audioBookCover">Cover</label>
+            <input type="text" class="form-control" id="audioBookCover" placeholder="cover" name='cover'>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
