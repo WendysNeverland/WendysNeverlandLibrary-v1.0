@@ -48,7 +48,7 @@ class AudioBookController extends Controller
             $narrator->audioBooks()->attach($audioBook->id);//attach zet gegevens in de tussentabel
         }
 
-        $audioBook->cover = $request->file('cover')->store('img\audiobookCover');
+        $audioBook->cover = $request->file('cover')->store('img\audiobookCover','public');
         $audioBook->save();
 
         return redirect('audiobook');

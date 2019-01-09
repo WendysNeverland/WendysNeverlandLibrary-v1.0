@@ -48,7 +48,7 @@ class BookController extends Controller
             $author->books()->attach($book->id);
         }
 
-        $book->cover = $request->file('cover')->store('img\bookCover');
+        $book->cover = $request->file('cover')->store('img\bookCover', 'public');
         $book->save();
         return redirect('book');
     }
