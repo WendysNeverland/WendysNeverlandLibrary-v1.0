@@ -4,7 +4,7 @@
     <h1>Add Book</h1>
 
 
-    <form method="POST" action="/book" class="col-sm-4">
+    <form method="POST" action="/book" enctype="multipart/form-data" class="col-sm-4">
         {{csrf_field()}}
         <div class="form-group">
           <label for="bookTitle">Title</label>
@@ -16,7 +16,7 @@
         </div>
         <div class="form-group">
             <label for="bookCover">Cover</label>
-            <input type="text" class="form-control" id="bookCover" placeholder="cover" name='cover'>
+            <input type="file" accept="image/*" class="form-control" id="bookCover" placeholder="cover" name='cover'>
         </div>
         <div class="form-group">
             <label for="bookGenre">Genre</label>

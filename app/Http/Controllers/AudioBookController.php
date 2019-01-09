@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\AudioBook;
 use App\Book;
+use App\Narrator;
 use Illuminate\Http\Request;
 
 class AudioBookController extends Controller
@@ -27,7 +28,8 @@ class AudioBookController extends Controller
     public function create()
     {
         $books = Book::get();
-        return view('audiobook/create', compact('books'));
+        $narrators = Narrator::get();
+        return view('audiobook/create', compact('books', 'narrators'));
     }
 
     /**
@@ -38,7 +40,17 @@ class AudioBookController extends Controller
      */
     public function store(Request $request)
     {
-        Audiobook::create(request(['book_id','cover']));
+        $audioBook = Audiobook::create(request(['book_id','cover']));
+        $narrators = request('narrators');//link naar de geselecteerde narrators in de create.blade
+
+        foreach ($narrators as $narratorsId) {
+            $narrator = Narrator::where('id', $narratorsId)->first(); //bij first krijg je model terug
+            $narrator->audioBooks()->attach($audioBook->id);//attach zet gegevens in de tussentabel
+        }
+
+        $audioBook->cover = $request->file('cover')->store('img\audiobookCover');
+        $audioBook->save();
+
         return redirect('audiobook');
     }
 

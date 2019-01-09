@@ -16,7 +16,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::with('genre')->get();
+        $books = Book::with(['genre','authors'])->get();
         return view('book/index', compact('books'));
     }
 
@@ -42,10 +42,14 @@ class BookController extends Controller
     {
         $book = Book::create(request(['title','summary','cover','genre_id']));
         $authors = request('authors');//blokhaken maken er een array van net deze naam als array erin
+
         foreach ($authors as $authorId) {
             $author = Author::where('id',$authorId)->first();
             $author->books()->attach($book->id);
         }
+
+        $book->cover = $request->file('cover')->store('img\bookCover');
+        $book->save();
         return redirect('book');
     }
 
