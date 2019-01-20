@@ -17,7 +17,7 @@ class AudioBookController extends Controller
     public function index()
     {
         $audioBooks = AudioBook::with(['book', 'narrators'])->get();
-        return view('audiobook/index', compact('audioBooks'));
+        return view('admin/audiobook/index', compact('audioBooks'));
     }
 
     /**
@@ -29,7 +29,7 @@ class AudioBookController extends Controller
     {
         $books = Book::get();
         $narrators = Narrator::get();
-        return view('audiobook/create', compact('books', 'narrators'));
+        return view('admin/audiobook/create', compact('books', 'narrators'));
     }
 
     /**
@@ -62,7 +62,7 @@ class AudioBookController extends Controller
      */
     public function show(AudioBook $audioBook)
     {
-        return view('audiobook/show', compact('audioBook'));
+        return view('admin/audiobook/show', compact('audioBook'));
     }
 
     /**

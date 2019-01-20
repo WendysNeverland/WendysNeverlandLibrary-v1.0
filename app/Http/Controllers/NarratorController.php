@@ -15,7 +15,7 @@ class NarratorController extends Controller
     public function index()
     {
         $narrators = narrator::get();
-        return view('narrator/index', compact('narrators'));
+        return view('admin/narrator/index', compact('narrators'));
     }
 
     /**
@@ -25,7 +25,7 @@ class NarratorController extends Controller
      */
     public function create()
     {
-        return view('narrator/create');
+        return view('admin/narrator/create');
     }
 
     /**
@@ -57,7 +57,7 @@ class NarratorController extends Controller
      */
     public function show(narrator $narrator)
     {
-        return view('narrator/show', compact('narrator'));
+        return view('admin/narrator/show', compact('narrator'));
     }
 
     /**

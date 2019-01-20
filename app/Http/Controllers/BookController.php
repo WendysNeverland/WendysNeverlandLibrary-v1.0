@@ -17,7 +17,7 @@ class BookController extends Controller
     public function index()
     {
         $books = Book::with(['genre','authors'])->get();
-        return view('book/index', compact('books'));
+        return view('admin/book/index', compact('books'));
     }
 
     /**
@@ -29,7 +29,7 @@ class BookController extends Controller
     {
         $genres = Genre::get();
         $authors = Author::get();
-        return view('book/create', compact('genres','authors'));
+        return view('admin/book/create', compact('genres','authors'));
     }
 
     /**
@@ -61,7 +61,7 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        return view('book/show', compact('book'));
+        return view('admin/book/show', compact('book'));
     }
 
     /**

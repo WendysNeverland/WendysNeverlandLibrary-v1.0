@@ -15,7 +15,7 @@ class GenreController extends Controller
     public function index()
     {
         $genres = Genre::get();
-        return view('genre/index', compact('genres'));
+        return view('admin/genre/index', compact('genres'));
     }
 
     /**
@@ -25,7 +25,7 @@ class GenreController extends Controller
      */
     public function create()
     {
-        return view('genre/create');
+        return view('admin/genre/create');
     }
 
     /**
@@ -48,7 +48,7 @@ class GenreController extends Controller
      */
     public function show(genre $genre)
     {
-        return view('genre/show', compact('genre'));
+        return view('admin/genre/show', compact('genre'));
     }
 
     /**
