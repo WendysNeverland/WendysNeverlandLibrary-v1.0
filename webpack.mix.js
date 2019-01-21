@@ -12,4 +12,9 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+   .sass('resources/sass/app.scss', 'public/css')
+   .styles('vendor/zurb/foundation/dist/css/foundation.min.css', 'public/css/vendor.css')
+
+mix.combine(['vendor/node/jquery/jquery.min.js',
+            'vendor/zurb/foundation/dist/js/foundation.min.js'
+            ],'public/js/vendor.js');
