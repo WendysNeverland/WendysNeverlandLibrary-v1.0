@@ -16,14 +16,13 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/vendor.css') }}" rel="stylesheet">
 </head>
-<body>
-    <div id="app">
+<body >
+    <div id=app></div>
+    @include('test')
+    {{-- <div class="grid-container" id="app">
         @include('layouts/menu')
-
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+        @yield('content')
+    </div> --}}
 </body>
 </html>
 
